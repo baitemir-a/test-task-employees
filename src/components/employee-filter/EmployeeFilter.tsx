@@ -9,6 +9,7 @@ import {
   searchById,
 } from "@/store/EmployeeSlice";
 import { Position, Department, Employee } from "@/types/Emplyee";
+import RangeInput from "@/ui/Range/Range";
 
 export default function EmployeeFilters() {
   const dispatch = useAppDispatch();
@@ -38,9 +39,8 @@ export default function EmployeeFilters() {
     dispatch(filterByDepartment(event.target.value as Department));
   };
 
-  const handleFilterByAge = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const [minAge, maxAge] = event.target.value.split(",").map(Number);
-    dispatch(filterByAge([minAge, maxAge]));
+  const handleFilterByAge = (values: number[]) => {
+    dispatch(filterByAge([values[0], values[1]]));
   };
 
   return (
@@ -107,15 +107,7 @@ export default function EmployeeFilters() {
       </div>
 
       {/* Filter by Age */}
-      <div>
-        <label htmlFor="filterByAge">Filter by Age</label>
-        <input
-          type="text"
-          id="filterByAge"
-          placeholder="Enter age range (e.g. 25,40)"
-          onChange={handleFilterByAge}
-        />
-      </div>
+      <RangeInput min={0} max={100} filter={handleFilterByAge}/>
     </div>
   );
 }
