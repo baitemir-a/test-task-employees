@@ -1,6 +1,9 @@
-'use client'
+"use client";
 
-import { useCreateEmployeesMutation } from "@/services/EmployeesService";
+import {
+  useCreateEmployeesMutation,
+  useGetEmployeesQuery,
+} from "@/services/EmployeesService";
 import {
   Department,
   Employee,
@@ -22,6 +25,7 @@ export default function CreateForm() {
 
   const [createEmployee, { isLoading: isCreating, error: createError }] =
     useCreateEmployeesMutation();
+  const { refetch } = useGetEmployeesQuery();
 
   const filteredPositions = Object.entries(PositionDepartmentMap)
     .filter(([, dept]) => dept === employeeData.department)
@@ -30,6 +34,7 @@ export default function CreateForm() {
   async function createEmployeeHandler(e: React.FormEvent) {
     e.preventDefault();
     await createEmployee(employeeData);
+    refetch();
   }
 
   return (
