@@ -1,30 +1,19 @@
 "use client";
-import { useAppDispatch } from "@/store/hooks"; // useDispatch with proper types
+import { useAppDispatch } from "@/store/hooks";
 import {
   filterByPosition,
   filterByDepartment,
   filterByAge,
-  searchByName,
-  searchByEmail,
-  searchById,
+  searchEmployee,
 } from "@/store/EmployeeSlice";
-import { Position, Department, Employee } from "@/types/Emplyee";
+import { Position, Department } from "@/types/Emplyee";
 import RangeInput from "@/ui/Range/Range";
 
 export default function EmployeeFilters() {
   const dispatch = useAppDispatch();
 
-  // Filter form handlers
-  const handleSearchByName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(searchByName(event.target.value));
-  };
-
-  const handleSearchByEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(searchByEmail(event.target.value));
-  };
-
-  const handleSearchById = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(searchById(event.target.value));
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(searchEmployee(event.target.value));
   };
 
   const handleFilterByPosition = (
@@ -47,36 +36,14 @@ export default function EmployeeFilters() {
     <div>
       <h3>Filters</h3>
 
-      {/* Search by Name */}
+      {/* Unified Search */}
       <div>
-        <label htmlFor="searchByName">Search by Name</label>
+        <label htmlFor="searchInput">Search</label>
         <input
           type="text"
-          id="searchByName"
-          placeholder="Enter name"
-          onChange={handleSearchByName}
-        />
-      </div>
-
-      {/* Search by Email */}
-      <div>
-        <label htmlFor="searchByEmail">Search by Email</label>
-        <input
-          type="email"
-          id="searchByEmail"
-          placeholder="Enter email"
-          onChange={handleSearchByEmail}
-        />
-      </div>
-
-      {/* Search by ID */}
-      <div>
-        <label htmlFor="searchById">Search by ID</label>
-        <input
-          type="text"
-          id="searchById"
-          placeholder="Enter employee ID"
-          onChange={handleSearchById}
+          id="searchInput"
+          placeholder="Search by name, email, or ID"
+          onChange={handleSearch}
         />
       </div>
 
@@ -107,7 +74,7 @@ export default function EmployeeFilters() {
       </div>
 
       {/* Filter by Age */}
-      <RangeInput min={0} max={100} filter={handleFilterByAge}/>
+      <RangeInput min={0} max={100} filter={handleFilterByAge} />
     </div>
   );
 }

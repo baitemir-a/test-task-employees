@@ -46,23 +46,16 @@ export const EmployeeSlice = createSlice({
         (employee) => employee.age >= minAge && employee.age <= maxAge
       );
     },
+    searchEmployee:(state: EmployeeState, action: PayloadAction<string>)=>{
+        const query = action.payload.toLowerCase().trim();
 
-    searchByName: (state: EmployeeState, action: PayloadAction<string>) => {
-      state.employees = state.allEmployees.filter((employee) =>
-        employee.name.toLowerCase().includes(action.payload.toLowerCase())
-      );
-    },
-
-    searchByEmail: (state: EmployeeState, action: PayloadAction<string>) => {
-      state.employees = state.allEmployees.filter((employee) =>
-        employee.email.toLowerCase().includes(action.payload.toLowerCase())
-      );
-    },
-
-    searchById: (state: EmployeeState, action: PayloadAction<string>) => {
-      state.employees = state.allEmployees.filter(
-        (employee) => employee.id === action.payload
-      );
+        state.employees = state.allEmployees.filter((employee) => {
+          return (
+            employee.name.toLowerCase().includes(query) ||
+            employee.email.toLowerCase().includes(query) ||
+            employee.id.toString().toLowerCase().includes(query)
+          );
+        });
     },
   },
 });
@@ -74,7 +67,5 @@ export const {
   filterByAge,
   filterByDepartment,
   filterByPosition,
-  searchByEmail,
-  searchById,
-  searchByName,
+  searchEmployee
 } = EmployeeSlice.actions;
