@@ -9,7 +9,7 @@ export default function EmployeeList() {
   return (
     <div>
       {data?.map((emp) => (
-        <Card employee={emp} key={emp.id} />
+        <Card employee={emp} key={emp.id.toString()} />
       ))}
     </div>
   );

@@ -1,5 +1,8 @@
+import { UUID } from "crypto";
+import { UUIDTypes } from "uuid";
+
 export interface Employee{
-    "id": number,
+    "id": UUIDTypes,
     "name": string,
     "email": string,
     "age": number,

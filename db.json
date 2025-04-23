@@ -25,12 +25,28 @@
       "department": "Developement"
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "Baitemir",
       "email": "bait@gmail.com",
       "age": 20,
       "position": "DevOps",
       "department": "Development"
+    },
+    {
+      "id": "5ed8",
+      "name": "Amit",
+      "email": "ammit@gmail.com",
+      "age": 12,
+      "position": "HR",
+      "department": "Management"
+    },
+    {
+      "id": "a5eb4461-31e2-4393-9660-6586f608a195",
+      "name": "Emirlan",
+      "email": "emirlan@gmail.com",
+      "age": 321,
+      "position": "Project Manager",
+      "department": "Management"
     }
   ]
 }
