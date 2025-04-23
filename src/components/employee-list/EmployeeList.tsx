@@ -6,6 +6,7 @@ import { Employee } from "@/types/Emplyee";
 import Card from "@/ui/Card/Card";
 import { useEffect } from "react";
 import { setEmployees } from "@/store/EmployeeSlice";
+import styles from './EmployeeList.module.scss'
 
 export default function EmployeeList() {
   const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ export default function EmployeeList() {
 
 
   return (
-    <div>
+    <div className={styles.EmployeeList}>
       {filteredEmployees  .map((employee: Employee) => (
         <Card key={employee.id.toString()} employee={employee} />
       ))}
