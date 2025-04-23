@@ -1,0 +1,18 @@
+@import '/src/styles/variables';
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: $montserrat;
+  color: $primary-color;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+  color: $primary-color;
+}
