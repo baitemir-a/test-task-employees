@@ -23,6 +23,14 @@
       "age": 20,
       "position": "Frontend Developer",
       "department": "Developement"
+    },
+    {
+      "id": 1,
+      "name": "Baitemir",
+      "email": "bait@gmail.com",
+      "age": 20,
+      "position": "DevOps",
+      "department": "Development"
     }
   ]
 }
