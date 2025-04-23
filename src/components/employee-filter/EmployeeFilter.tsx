@@ -1,13 +1,14 @@
 "use client";
 import { useAppDispatch } from "@/store/hooks";
+import { Position, Department } from "@/types/Emplyee";
+import RangeInput from "@/ui/Range/Range";
+import Search from "@/ui/Search/Search";
 import {
   filterByPosition,
   filterByDepartment,
   filterByAge,
   searchEmployee,
 } from "@/store/EmployeeSlice";
-import { Position, Department } from "@/types/Emplyee";
-import RangeInput from "@/ui/Range/Range";
 
 export default function EmployeeFilters() {
   const dispatch = useAppDispatch();
@@ -37,16 +38,7 @@ export default function EmployeeFilters() {
       <h3>Filters</h3>
 
       {/* Unified Search */}
-      <div>
-        <label htmlFor="searchInput">Search</label>
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search by name, email, or ID"
-          onChange={handleSearch}
-        />
-      </div>
-
+      <Search handleSearch={handleSearch} />
       {/* Filter by Position */}
       <div>
         <label htmlFor="filterByPosition">Filter by Position</label>
