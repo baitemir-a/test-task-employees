@@ -1,0 +1,28 @@
+{
+  "employees": [
+    {
+      "id": "2",
+      "name": "Bob Smith",
+      "email": "bob.smith@example.com",
+      "age": 28,
+      "position": "QA Engineer",
+      "department": "QA"
+    },
+    {
+      "id": "3",
+      "name": "Carol Williams",
+      "email": "carol.williams@example.com",
+      "age": 35,
+      "position": "Project Manager",
+      "department": "Project Management"
+    },
+    {
+      "id": "4",
+      "name": "Baitemir",
+      "email": "baitemir1706@gmail.com",
+      "age": 20,
+      "position": "Frontend Developer",
+      "department": "Developement"
+    }
+  ]
+}
