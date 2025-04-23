@@ -9,6 +9,7 @@ import {
   filterByAge,
   searchEmployee,
 } from "@/store/EmployeeSlice";
+import Filter from "@/ui/Filter/Filter";
 
 export default function EmployeeFilters() {
   const dispatch = useAppDispatch();
@@ -40,30 +41,10 @@ export default function EmployeeFilters() {
       {/* Unified Search */}
       <Search handleSearch={handleSearch} />
       {/* Filter by Position */}
-      <div>
-        <label htmlFor="filterByPosition">Filter by Position</label>
-        <select id="filterByPosition" onChange={handleFilterByPosition}>
-          <option value="">Select Position</option>
-          {Object.values(Position).map((position) => (
-            <option key={position} value={position}>
-              {position}
-            </option>
-          ))}
-        </select>
-      </div>
+      <Filter title="Position" options={Position} handleFilter={handleFilterByPosition}/>
 
       {/* Filter by Department */}
-      <div>
-        <label htmlFor="filterByDepartment">Filter by Department</label>
-        <select id="filterByDepartment" onChange={handleFilterByDepartment}>
-          <option value="">Select Department</option>
-          {Object.values(Department).map((department) => (
-            <option key={department} value={department}>
-              {department}
-            </option>
-          ))}
-        </select>
-      </div>
+      <Filter title="Department" options={Department} handleFilter={handleFilterByDepartment}/>
 
       {/* Filter by Age */}
       <RangeInput min={0} max={100} filter={handleFilterByAge} />

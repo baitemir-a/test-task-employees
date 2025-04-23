@@ -1,8 +1,7 @@
 @import '/src/styles/variables';
 @import '/src/styles/mixins';
-
-.Search{
-    input{
+.Filter{
+    select{
         @include input_style($shadow, $secondary-color)
     }
 }
