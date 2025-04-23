@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
-
+import styles from './Range.module.scss'
 type Props = {
   max: number;
   min: number;
@@ -9,11 +9,10 @@ type Props = {
 };
 
 export default function RangeInput({ max, min, filter }: Props) {
-  const [ageRange, setAgeRange] = useState<[number, number]>([25, 40]);
+  const [ageRange, setAgeRange] = useState<[number, number]>([10, 50]);
 
   return (
-    <div>
-      <label htmlFor="filterByAge">Filter by Age</label>
+    <div className={styles.Range}>
       <Range
         step={1}
         min={min}
@@ -60,7 +59,7 @@ export default function RangeInput({ max, min, filter }: Props) {
           );
         }}
       />
-      <div>
+      <div className={styles.info}>
         <span>Min Age: {ageRange[0]}</span> —{" "}
         <span>Max Age: {ageRange[1]}</span>
       </div>

@@ -9,7 +9,7 @@ export default function Search({handleSearch}: Props) {
         <input
           type="text"
           id="searchInput"
-          placeholder="Search by name, email, or ID"
+          placeholder="Search by name email ID"
           onChange={handleSearch}
         />
       </div>

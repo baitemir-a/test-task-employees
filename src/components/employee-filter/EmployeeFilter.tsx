@@ -10,6 +10,7 @@ import {
   searchEmployee,
 } from "@/store/EmployeeSlice";
 import Filter from "@/ui/Filter/Filter";
+import styles from "./EmployeeFilter.module.scss";
 
 export default function EmployeeFilters() {
   const dispatch = useAppDispatch();
@@ -35,19 +36,22 @@ export default function EmployeeFilters() {
   };
 
   return (
-    <div>
+    <div className={styles.EmployeeFilter}>
       <h3>Filters</h3>
-
-      {/* Unified Search */}
-      <Search handleSearch={handleSearch} />
-      {/* Filter by Position */}
-      <Filter title="Position" options={Position} handleFilter={handleFilterByPosition}/>
-
-      {/* Filter by Department */}
-      <Filter title="Department" options={Department} handleFilter={handleFilterByDepartment}/>
-
-      {/* Filter by Age */}
-      <RangeInput min={0} max={100} filter={handleFilterByAge} />
+      <div className={styles.filters}>
+        <Search handleSearch={handleSearch} />
+        <Filter
+          title="Position"
+          options={Position}
+          handleFilter={handleFilterByPosition}
+        />
+        <Filter
+          title="Department"
+          options={Department}
+          handleFilter={handleFilterByDepartment}
+        />
+        <RangeInput min={0} max={100} filter={handleFilterByAge} />
+      </div>
     </div>
   );
 }
