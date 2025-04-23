@@ -2,22 +2,28 @@ import { Employee, Position, Department } from "@/types/Emplyee";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type EmployeeState = {
-  employees: Employee[];
-};
-
-const initialState: EmployeeState = {
-  employees: [],
-};
+    allEmployees: Employee[];     
+    employees: Employee[];        
+  };
+  
+  const initialState: EmployeeState = {
+    allEmployees: [],
+    employees: [],
+  };
 
 export const EmployeeSlice = createSlice({
-  name: "employee",
+  name: "employeeFilter",
   initialState,
   reducers: {
+    setEmployees: (state: EmployeeState, action: PayloadAction<Employee[]>) => {
+        state.allEmployees = action.payload;
+        state.employees = action.payload;
+    },
     filterByPosition: (
       state: EmployeeState,
       action: PayloadAction<Position>
     ) => {
-      state.employees = state.employees.filter(
+      state.employees = state.allEmployees.filter(
         (employee) => employee.position === action.payload
       );
     },
@@ -26,7 +32,7 @@ export const EmployeeSlice = createSlice({
       state: EmployeeState,
       action: PayloadAction<Department>
     ) => {
-      state.employees = state.employees.filter(
+      state.employees = state.allEmployees.filter(
         (employee) => employee.department === action.payload
       );
     },
@@ -36,25 +42,25 @@ export const EmployeeSlice = createSlice({
       action: PayloadAction<[number, number]>
     ) => {
       const [minAge, maxAge] = action.payload;
-      state.employees = state.employees.filter(
+      state.employees = state.allEmployees.filter(
         (employee) => employee.age >= minAge && employee.age <= maxAge
       );
     },
 
     searchByName: (state: EmployeeState, action: PayloadAction<string>) => {
-      state.employees = state.employees.filter((employee) =>
+      state.employees = state.allEmployees.filter((employee) =>
         employee.name.toLowerCase().includes(action.payload.toLowerCase())
       );
     },
 
     searchByEmail: (state: EmployeeState, action: PayloadAction<string>) => {
-      state.employees = state.employees.filter((employee) =>
+      state.employees = state.allEmployees.filter((employee) =>
         employee.email.toLowerCase().includes(action.payload.toLowerCase())
       );
     },
 
     searchById: (state: EmployeeState, action: PayloadAction<string>) => {
-      state.employees = state.employees.filter(
+      state.employees = state.allEmployees.filter(
         (employee) => employee.id === action.payload
       );
     },
@@ -64,6 +70,7 @@ export const EmployeeSlice = createSlice({
 export const employeeReducer = EmployeeSlice.reducer;
 
 export const {
+  setEmployees,
   filterByAge,
   filterByDepartment,
   filterByPosition,
