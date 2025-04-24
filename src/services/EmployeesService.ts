@@ -5,7 +5,8 @@ export const EmployeesService = createApi({
   reducerPath: "employees",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/employees" }),
   endpoints: (builder) => ({
-    getEmployees: builder.query<Employee[], void>({query: () => "/" }),
+    getEmployees: builder.query<Employee[], void>({ query: () => "/" }),
+    getEmployeeById: builder.query<Employee, string>({ query: (id) => `/${id}` }),
     createEmployees: builder.mutation<Employee, Employee>({
       query: (newEmployee) => ({
         url: "/",
@@ -13,8 +14,19 @@ export const EmployeesService = createApi({
         body: newEmployee,
       }),
     }),
+    updateEmployee: builder.mutation<Employee, Employee>({
+      query: (newEmployee) => ({
+        url: `/${newEmployee.id}`,
+        method: "PATCH",
+        body: newEmployee,
+      }),
+    }),
   }),
 });
 
-
-export const {useGetEmployeesQuery, useCreateEmployeesMutation} = EmployeesService;
+export const {
+  useGetEmployeesQuery,
+  useGetEmployeeByIdQuery,
+  useCreateEmployeesMutation,
+  useUpdateEmployeeMutation,
+} = EmployeesService;

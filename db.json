@@ -1,38 +1,6 @@
 {
   "employees": [
     {
-      "id": "2",
-      "name": "Bob Smith",
-      "email": "bob.smith@example.com",
-      "age": 28,
-      "position": "QA Engineer",
-      "department": "QA"
-    },
-    {
-      "id": "3",
-      "name": "Carol Williams",
-      "email": "carol.williams@example.com",
-      "age": 35,
-      "position": "Project Manager",
-      "department": "Project Management"
-    },
-    {
-      "id": "4",
-      "name": "Baitemir",
-      "email": "baitemir1706@gmail.com",
-      "age": 20,
-      "position": "Frontend Developer",
-      "department": "Development"
-    },
-    {
-      "id": "1",
-      "name": "Baitemir",
-      "email": "bait@gmail.com",
-      "age": 20,
-      "position": "DevOps",
-      "department": "Development"
-    },
-    {
       "id": "5ed8",
       "name": "Amit",
       "email": "ammit@gmail.com",
@@ -50,18 +18,18 @@
     },
     {
       "id": "a577c1d8-5cda-43d5-8702-75aa7590e01c",
-      "name": "qwe",
-      "email": "qwe@gmail.com",
+      "name": "sanjar",
+      "email": "bread@gmail.com",
       "age": 22,
-      "position": "Team Lead",
-      "department": "Management"
+      "position": "Manual QA",
+      "department": "QA"
     },
     {
       "id": "a17b0347-6f44-4107-9193-27a180c90545",
       "name": "Nurs",
       "email": "nurs@gmail.com",
       "age": 55,
-      "position": "Manual QA",
+      "position": "Automation QA",
       "department": "QA"
     }
   ]

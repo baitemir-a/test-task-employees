@@ -5,10 +5,7 @@ import {
   useGetEmployeesQuery,
 } from "@/services/EmployeesService";
 import {
-  Department,
   Employee,
-  Position,
-  PositionDepartmentMap,
 } from "@/types/Emplyee";
 import Form from "@/ui/Form/Form";
 
@@ -23,5 +20,5 @@ export default function CreateForm() {
     refetch();
   }
 
-  return <Form submit={createEmployeeHandler} isLoading={isLoading} error={error}/>;
+  return <Form action="Create" submit={createEmployeeHandler} isLoading={isLoading} error={error}/>;
 }

@@ -21,7 +21,7 @@ export default function Card({ employee }: Props) {
         <p>{employee.department}</p>
       </div>
       <div>
-        <Link href={`/edit/${employee.id}`}>
+        <Link href={`/update/${employee.id}`}>
           <Image src={editIcon} alt="edit" loading="lazy" />
         </Link>
         <button>
