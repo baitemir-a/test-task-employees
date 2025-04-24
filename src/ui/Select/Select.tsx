@@ -7,7 +7,7 @@ type Props<T extends EnumLike> = {
   options?: T;
   filtered?:Position[]
   data:Employee,
-  value: Department | Position
+  value: Department | Position | ""
   handleSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
@@ -15,9 +15,10 @@ type Props<T extends EnumLike> = {
 export default function Select<T extends EnumLike>({title, data,filtered, options,value, handleSelect}: Props<T>) {
   return (
     <div className={styles.Select}>
-        <label>{title}:</label>
+        <label htmlFor={title}>{title}:</label>
         <select
           value={value}
+          id={title}
           onChange={(e) =>
             handleSelect(e)
           }
