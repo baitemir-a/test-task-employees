@@ -1,43 +1,11 @@
 {
   "employees": [
     {
-      "id": "5ed8",
-      "name": "Amit",
-      "email": "ammit@gmail.com",
-      "age": 12,
-      "position": "HR",
-      "department": "Management"
-    },
-    {
-      "id": "a5eb4461-31e2-4393-9660-6586f608a195",
-      "name": "Emirlan",
-      "email": "emirlan@gmail.com",
-      "age": 32,
-      "position": "Project Manager",
-      "department": "Management"
-    },
-    {
-      "id": "a577c1d8-5cda-43d5-8702-75aa7590e01c",
-      "name": "sanjar",
-      "email": "bread@gmail.com",
-      "age": 22,
-      "position": "Manual QA",
-      "department": "QA"
-    },
-    {
-      "id": "a17b0347-6f44-4107-9193-27a180c90545",
+      "id": "3f4cceba-ca55-463a-bbb6-09113d414111",
       "name": "Nurs",
       "email": "nurs@gmail.com",
-      "age": 55,
-      "position": "Automation QA",
-      "department": "QA"
-    },
-    {
-      "id": "5049e324-5f2f-4802-9d31-ad9df830f760",
-      "name": "BAit",
-      "email": "bait@gmail.com",
-      "age": 40,
-      "position": "Frontend Developer",
+      "age": 11,
+      "position": "DevOps",
       "department": "Development"
     }
   ]

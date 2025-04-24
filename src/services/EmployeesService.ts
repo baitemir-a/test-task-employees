@@ -21,6 +21,21 @@ export const EmployeesService = createApi({
         body: newEmployee,
       }),
     }),
+    deleteEmployees: builder.mutation<{ success: boolean }, string[]>({
+        async queryFn(ids, _queryApi, _extraOptions, baseQuery) {
+          const results = await Promise.all(
+            ids.map(id => baseQuery({ url: `/${id}`, method: "DELETE" }))
+          );
+      
+          const hasError = results.some(r => r.error);
+      
+          if (hasError) {
+            return { error: { status: 500, data: "Failed to delete one or more employees" } };
+          }
+      
+          return { data: { success: true } }; // ✅ This is the fix
+        },
+      }),
   }),
 });
 
@@ -29,4 +44,5 @@ export const {
   useGetEmployeeByIdQuery,
   useCreateEmployeesMutation,
   useUpdateEmployeeMutation,
+  useDeleteEmployeesMutation
 } = EmployeesService;

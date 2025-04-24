@@ -15,21 +15,27 @@ import Button from "../Button/Button";
 import styles from "./Form.module.scss";
 type Props = {
   submit: (e: React.FormEvent, employeeData: Employee) => void;
-  action:string
+  action: string;
   data?: Employee;
   isLoading: boolean;
   error: FetchBaseQueryError | SerializedError | undefined;
 };
-const initEmployee: Employee = {
-  id: uuidv4(),
-  name: "",
-  email: "",
-  age: 0,
-  position: Position.DevOps,
-  department: Department.Development,
-};
 
-export default function Form({ submit, action, data, isLoading, error }: Props) {
+export default function Form({
+  submit,
+  action,
+  data,
+  isLoading,
+  error,
+}: Props) {
+  const initEmployee: Employee = {
+    id: uuidv4(),
+    name: "",
+    email: "",
+    age: 0,
+    position: Position.DevOps,
+    department: Department.Development,
+  };
   const [employeeData, setEmployeeData] = useState<Employee>(initEmployee);
 
   useEffect(() => {

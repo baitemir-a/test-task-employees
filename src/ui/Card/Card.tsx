@@ -6,9 +6,15 @@ import styles from "./Card.module.scss";
 import Link from "next/link";
 type Props = {
   employee: Employee;
+  employeesToDelete: string[];
+  setToDelete: (id: string) => void;
 };
 
-export default function Card({ employee }: Props) {
+export default function Card({
+  employee,
+  employeesToDelete,
+  setToDelete,
+}: Props) {
   return (
     <div className={styles.Card}>
       <div>
@@ -24,8 +30,12 @@ export default function Card({ employee }: Props) {
         <Link href={`/update/${employee.id}`}>
           <Image src={editIcon} alt="edit" loading="lazy" />
         </Link>
-        <button>
-          <Image src={deleteIcon} alt="delete" loading="lazy" />
+        <button onClick={() => setToDelete(employee.id.toString())}>
+          <Image
+          src={deleteIcon}
+          alt="delete"
+          loading="lazy"
+          style={employeesToDelete.includes(employee.id.toString()) ? { boxShadow: "0 0 5px red" } : undefined}/>
         </button>
       </div>
     </div>

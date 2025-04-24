@@ -17,6 +17,8 @@ export default function CreateForm() {
   const router = useRouter();
   async function createEmployeeHandler(e: React.FormEvent, employeeData:Employee) {
     e.preventDefault();
+    console.log(employeeData);
+    
     await createEmployee(employeeData);
     refetch();
     router.replace("/")
