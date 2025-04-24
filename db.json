@@ -31,6 +31,14 @@
       "age": 55,
       "position": "Automation QA",
       "department": "QA"
+    },
+    {
+      "id": "5049e324-5f2f-4802-9d31-ad9df830f760",
+      "name": "BAit",
+      "email": "bait@gmail.com",
+      "age": 40,
+      "position": "Frontend Developer",
+      "department": "Development"
     }
   ]
 }
