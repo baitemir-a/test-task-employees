@@ -21,7 +21,6 @@ export default function Select<T extends EnumLike>({title, data,filtered, option
           onChange={(e) =>
             handleSelect(e)
           }
-        //   disabled={!data.department}
         >
           <option value="">Select {title}</option>
           {filtered?.map((pos) => (

@@ -53,7 +53,7 @@ export default function EmployeeFilters() {
 
   const filteredPositions = Object.entries(PositionDepartmentMap)
     .filter(([_, dept]) => dept === selectedDepartment)
-    .map(([position]) => position); // these are already enum values
+    .map(([position]) => position);
 
   const filteredEnum = getFilteredEnum(Position, filteredPositions);
 

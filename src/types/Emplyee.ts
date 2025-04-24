@@ -39,12 +39,3 @@ export const PositionDepartmentMap: Record<Position, Department> = {
     [Position.TeamLead]: Department.Management,
   };
   
-
-// const baitemir: Employee = {
-//     id:1,
-//     name:"Baitemir",
-//     email:"bait@gmail.com",
-//     age:20,
-//     position: Position.DevOps,
-//     department: PositionDepartmentMap[Position.DevOps],    
-// }

@@ -1,7 +1,7 @@
 "use client";
-import { useAppDispatch, useAppSelector } from "@/store/hooks"; // useSelector with proper types
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { useGetEmployeesQuery } from "@/services/EmployeesService";
-import { RootState } from "@/store/store"; // RootState for types
+import { RootState } from "@/store/store";
 import { Employee } from "@/types/Emplyee";
 import Card from "@/ui/Card/Card";
 import { useEffect } from "react";
@@ -15,16 +15,13 @@ export default function EmployeeList() {
   const filteredEmployees = useAppSelector(
     (state: RootState) => state.employeeFilter.employees
   );
-  // console.log(filteredEmployees, employeesData);
 
   useEffect(() => {
     if (employeesData) dispatch(setEmployees(employeesData));
   },[employeesData]);
-  // If loading or error, show respective messages
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error fetching employees.</p>;
 
-  // If no data and no filtered employees, show message
   if (!employeesData && filteredEmployees.length === 0) {
     return <p>No employees available.</p>;
   }

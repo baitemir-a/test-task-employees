@@ -19,12 +19,6 @@ export default function UpdateForm({id}: Props) {
   const { refetch } = useGetEmployeesQuery();
   const { data } = useGetEmployeeByIdQuery(id);
   const [updateEmployee, { isLoading, error }] = useUpdateEmployeeMutation();
-
-  // const employees = useAppSelector(
-  //   (state: RootState) => state.employeeFilter.employees
-  // );
-  // const employee = employees.find((e) => e.id === id);
-  // console.log(employee);
   
   async function updateEmployeeHandler(
     e: React.FormEvent,
@@ -33,6 +27,7 @@ export default function UpdateForm({id}: Props) {
     e.preventDefault();
     await updateEmployee(employeeData);
     refetch();
+
   }
   return (
     <Form action="Update" submit={updateEmployeeHandler} data={data} isLoading={isLoading} error={error} />

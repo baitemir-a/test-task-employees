@@ -32,7 +32,6 @@ const initEmployee: Employee = {
 export default function Form({ submit, action, data, isLoading, error }: Props) {
   const [employeeData, setEmployeeData] = useState<Employee>(initEmployee);
 
-  // Sync external data to local state once it's loaded
   useEffect(() => {
     if (data) {
       setEmployeeData(data);
