@@ -11,7 +11,8 @@ import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
 import Input from "../Input/Input";
 import Select from "../Select/Select";
-
+import Button from "../Button/Button";
+import styles from './Form.module.scss'
 type Props = {
   submit: (e: React.FormEvent, employeeData: Employee) => void;
   data?: Employee;
@@ -35,6 +36,7 @@ export default function Form({ submit, data, isLoading, error }: Props) {
     .map(([pos]) => pos as Position);
   return (
     <form
+    className={styles.Form}
       onSubmit={(e) => {
         submit(e, employeeData);
       }}
@@ -87,9 +89,9 @@ export default function Form({ submit, data, isLoading, error }: Props) {
         }}/>
       
 
-      <button type="submit" disabled={isLoading}>
+      <Button type="submit" disabled={isLoading}>
         {isLoading ? "Creating..." : "Create Employee"}
-      </button>
+      </Button>
 
       {error && <p style={{ color: "red" }}>Error creating employee.</p>}
     </form>

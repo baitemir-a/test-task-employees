@@ -2,6 +2,9 @@
 @import '/src/styles/mixins';
 
 .Input{
+    display: flex;
+    flex-direction: column;
+    // align-items: c;
     input{
         @include input_style($shadow, $secondary-color)
     }

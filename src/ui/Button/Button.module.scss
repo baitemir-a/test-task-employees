@@ -1,0 +1,14 @@
+@import '/src/styles/variables';
+
+.Button{
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s;
+    &:hover{
+        filter: brightness(1.5);
+    }
+}

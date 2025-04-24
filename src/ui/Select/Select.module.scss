@@ -1,6 +1,8 @@
 @import '/src/styles/variables';
 @import '/src/styles/mixins';
 .Select{
+    display: flex;
+    flex-direction: column;
     select{
         @include input_style($shadow, $secondary-color);
     }
