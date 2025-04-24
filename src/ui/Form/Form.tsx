@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { SerializedError } from "@reduxjs/toolkit";
 import Input from "../Input/Input";
+import Select from "../Select/Select";
 
 type Props = {
   submit: (e: React.FormEvent, employeeData: Employee) => void;
@@ -71,48 +72,20 @@ export default function Form({ submit, data, isLoading, error }: Props) {
           }))
         }
       />
-
-      <div>
-        <label>Department:</label>
-        <select
-          value={employeeData.department}
-          onChange={(e) =>
+        <Select title="Department" options={Department} data={employeeData} handleSelect={(e)=>{
             setEmployeeData((prev) => ({
-              ...prev,
-              department: e.target.value as Department,
-              position: "" as Position,
-            }))
-          }
-        >
-          <option value="">Select Department</option>
-          {Object.values(Department).map((dep) => (
-            <option key={dep} value={dep}>
-              {dep}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        <label>Position:</label>
-        <select
-          value={employeeData.position}
-          onChange={(e) =>
-            setEmployeeData((prev) => ({
-              ...prev,
-              position: e.target.value as Position,
-            }))
-          }
-          disabled={!employeeData.department}
-        >
-          <option value="">Select Position</option>
-          {filteredPositions.map((pos) => (
-            <option key={pos} value={pos}>
-              {pos}
-            </option>
-          ))}
-        </select>
-      </div>
+                ...prev,
+                department: e.target.value as Department,
+                position: "" as Position,
+              }))
+        }}/>
+        <Select title="Position" filtered={filteredPositions} data={employeeData} handleSelect={(e)=>{
+             setEmployeeData((prev) => ({
+                ...prev,
+                position: e.target.value as Position,
+              }))
+        }}/>
+      
 
       <button type="submit" disabled={isLoading}>
         {isLoading ? "Creating..." : "Create Employee"}
