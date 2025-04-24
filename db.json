@@ -22,7 +22,7 @@
       "email": "baitemir1706@gmail.com",
       "age": 20,
       "position": "Frontend Developer",
-      "department": "Developement"
+      "department": "Development"
     },
     {
       "id": "1",
@@ -55,6 +55,14 @@
       "age": 22,
       "position": "Team Lead",
       "department": "Management"
+    },
+    {
+      "id": "a17b0347-6f44-4107-9193-27a180c90545",
+      "name": "Nurs",
+      "email": "nurs@gmail.com",
+      "age": 55,
+      "position": "Manual QA",
+      "department": "QA"
     }
   ]
 }
